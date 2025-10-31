@@ -2,8 +2,7 @@ services:
   - type: web
     name: n8n
     env: docker
-    docker:
-      image: n8nio/n8n:latest
+    dockerfilePath: ./Dockerfile
     plan: free
     envVars:
       - key: DB_TYPE
@@ -35,7 +34,7 @@ services:
       - key: N8N_PORT
         value: 5678
       - key: WEBHOOK_URL
-        value: https://n8n-yourappname.onrender.com
+        value: https://<your-render-app-name>.onrender.com
       - key: GENERIC_TIMEZONE
         value: Asia/Kolkata
     disk:
