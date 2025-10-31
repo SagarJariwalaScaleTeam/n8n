@@ -2,9 +2,8 @@ services:
   - type: web
     name: n8n
     env: docker
+    dockerfilePath: ./Dockerfile
     plan: free
-    dockerImage: n8nio/n8n:latest
-    autoDeploy: true
     envVars:
       - key: DB_TYPE
         value: postgresdb
@@ -19,22 +18,26 @@ services:
       - key: DB_POSTGRESDB_PASSWORD
         value: npg_cmEhWQl6UVo7
       - key: DB_POSTGRESDB_SSL_REJECT_UNAUTHORIZED
-        value: false
+        value: "false"
       - key: DB_POSTGRESDB_SSL_MODE
         value: require
       - key: N8N_BASIC_AUTH_ACTIVE
-        value: true
+        value: "true"
       - key: N8N_BASIC_AUTH_USER
         value: admin
       - key: N8N_BASIC_AUTH_PASSWORD
         value: admin123
       - key: N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS
-        value: true
+        value: "true"
       - key: N8N_HOST
         value: 0.0.0.0
       - key: N8N_PORT
         value: 5678
       - key: WEBHOOK_URL
-        value: https://n8n.onrender.com
+        value: https://<your-render-app-name>.onrender.com
       - key: GENERIC_TIMEZONE
         value: Asia/Kolkata
+    disk:
+      name: n8n_data
+      mountPath: /home/node/.n8n
+      sizeGB: 1
