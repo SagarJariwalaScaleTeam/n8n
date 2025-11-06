@@ -37,3 +37,5 @@ services:
         value: https://<your-render-app-name>.onrender.com
       - key: GENERIC_TIMEZONE
         value: Asia/Kolkata
+      - key: ENCRYPTION_KEY
+        value: 6xHqZ8Mmlf+Qe4A1s0+K5q3K
