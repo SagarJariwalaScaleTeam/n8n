@@ -4,6 +4,9 @@ FROM n8nio/n8n:latest
 # Set timezone (optional)
 ENV GENERIC_TIMEZONE=Asia/Kolkata
 
+# ✅ Persist encryption key inside Docker image
+ENV N8N_ENCRYPTION_KEY=6xHqZ8Mmlf+Qe4A1s0+K5q3K
+
 # Expose n8n port
 EXPOSE 5678
 
